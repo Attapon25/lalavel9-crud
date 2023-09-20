@@ -29,7 +29,7 @@
                     <div class="col-md-12">
                         <div class="form-group my-3">
                             <strong>Job Type</strong>
-                            <select name="jobType" id="jobType">
+                            <select name="jobType" id="jobType" value="{{ $company->jobType }}">
                                 <option value="Development">Development</option>
                                 <option value="Test">Test</option>
                                 <option value="Document">Document</option>
@@ -42,7 +42,7 @@
                     <div class="col-md-12">
                         <div class="form-group my-3">
                             <strong>Job Name</strong>
-                            <input type="text" name="jobName" class="form-control">
+                            <input type="text" name="jobName" class="form-control"value="{{ $company->jobName }}">
                             @error('jobName')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -51,7 +51,7 @@
                     <div class="col-md-12">
                         <div class="form-group my-3">
                             <strong>Time To Start</strong>
-                            <input type="time" name="timeToStart" class="form-control" >
+                            <input type="time" name="timeToStart" class="form-control" value="{{ $company->timeToStart }}">
                             @error('timeToStart')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -60,7 +60,7 @@
                     <div class="col-md-12">
                         <div class="form-group my-3">
                             <strong>Time To End</strong>
-                            <input type="time" name="timeToEnd" class="form-control" >
+                            <input type="time" name="timeToEnd" class="form-control" value="{{ $company->timeToEnd }}">
                             @error('timeToEnd')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -69,7 +69,7 @@
                     <div class="col-md-12">
                         <div class="form-group my-3">
                             <strong>Status</strong>
-                            <select name="Count" id="Count">
+                            <select name="Count" id="Count" value="{{ $company->Count }}">
                                 <option value="Proceed">Proceed</option>
                                 <option value="Finish">Finish</option>
                                 <option value="Cancel">Cancel</option>
@@ -82,7 +82,7 @@
                     <div class="col-md-12">
                         <div class="form-group my-3">
                             <strong>Date and Time of Data Recording</strong>
-                            <input type="datetime-local" id="dateRecording" name="dateRecording">
+                            <input type="datetime-local" id="dateRecording" name="dateRecording" value="{{ $company->dateRecording }}">
                             <br>
                             @error('dateRecording')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -91,12 +91,11 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group my-3">
-                            <strong>Last Date and Time To Update</strong>
-                            <input type="datetime-local" id="lastDateRecording" name="lastDateRecording">
+                            <strong >Latest update time </strong><p>{{$company->lastDateRecording}}</p>
+                            
+                            
+                            <input class="hidden" type="hidden" id="lastDateRecording" name="lastDateRecording" value="{{date("Y-m-d H:i:s")}}">
                             <br>
-                            @error('lastDateRecording')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
                         </div>
                     </div>
                     <div class="col-md-12">

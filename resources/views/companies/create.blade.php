@@ -81,7 +81,7 @@
                     <div class="col-md-12">
                         <div class="form-group my-3">
                             <strong>Date and Time of Data Recording</strong>
-                            <input type="datetime-local" id="dateRecording" name="dateRecording">
+                            <input type="date" id="dateRecording" name="dateRecording">
                             <br>
                             @error('dateRecording')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -93,9 +93,6 @@
                             <strong>Last Date and Time To Update</strong>
                             <input type="datetime-local" id="lastDateRecording" name="lastDateRecording">
                             <br>
-                            @error('lastDateRecording')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
                         </div>
                     </div>
                     <div class="col-md-12">

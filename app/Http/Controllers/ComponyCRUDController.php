@@ -8,9 +8,25 @@ use Illuminate\Http\Request;
 
 class ComponyCRUDController extends Controller
 {
-    public function index() {
-        $data['companies'] = Company::orderBy('id', 'asc')->paginate(5);
-        return view('companies.index', $data);
+    public function index(Request $request) {
+        $search = $request->search ?? null;
+        $monthYear = $request->monthYear ?? null;
+        if ($search != null) {
+            # code...
+            $data['companies'] = Company::where('dateRecording', 'like', '%' . $search . '%')->orderBy('id', 'asc')->paginate(5);
+            return view('companies.index', $data);
+
+        } else if($monthYear != null) {
+            # code...
+            $data['companies'] = Company::where('dateRecording', 'like', '%' .$monthYear.'%')->orderBy('id', 'asc')->paginate(5);
+            return view('companies.index', $data);
+
+        }else{
+            $data['companies'] = Company::orderBy('id', 'asc')->paginate(5);
+            return view('companies.index', $data);
+        }
+        // $data['companies'] = Company::orderBy('id', 'asc')->paginate(5);
+        // return view('companies.index', $data);
     }
 
     // Create resource
